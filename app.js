@@ -12,7 +12,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({mongoUrl: process.env.SESSION_MONGO_URI, collectionName: "sessions"})
+    store: MongoStore.create({mongoUrl: process.env.MONGO_URI, collectionName: "sessions"})
 }));
 app.use((req, res, next) => {
     res.locals.user = req.session.user;

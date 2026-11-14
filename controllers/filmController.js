@@ -7,7 +7,7 @@ exports.lista = async (req, res, next) => {
     try {
         const filmek = await Film.find()
             .populate({
-                path: 'feladatok',
+                path: 'feladat',
                 match: {
                     megnevezes: 'rendező'
                 },

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const filmSchema = new mongoose.Schema({
   _id: { type: Number, required: true },
-  cim: { type: String, required: true, trim: true },
+  cím: { type: String, required: true, trim: true },
   gyartas: { type: Number, required: true },
   hossz: { type: Number, min: 0, default: null },
   bemutato: {

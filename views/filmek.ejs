@@ -1,53 +1,17 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hangosfilmek</title>
-  <style>
-    table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: left;
-    }
-
-    th {
-      background: #eee;
-    }
-  </style>
-</head>
-<body>
-  <h1>Hangosfilmek</h1>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Film címe</th>
-        <th>Gyártási év</th>
-        <th>Első rendező</th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% if (filmek.length === 0) { %>
+<tbody>
+    <% if (filmek.length === 0) { %>
         <tr>
-          <td colspan="3">Nincs megjeleníthető film.</td>
+            <td colspan="3">Nincs megjeleníthető film.</td>
         </tr>
-      <% } %>
+    <% } %>
 
-      <% filmek.forEach((film) => { %>
+    <% filmek.forEach((film) => { %>
         <tr>
-          <td><%= film.cím %></td>
-          <td><%= film.gyartas %></td>
-          <td><%= film.rendezo %></td>
+            <td><%= film.cím %></td>
+            <td><%= film.gyartas %></td>
+            <td>
+                <%= film.feladatok[0]?.szemely?.nev ?? 'Nincs adat' %>
+            </td>
         </tr>
-      <% }); %>
-    </tbody>
-  </table>
-</body>
-</html>
+    <% }); %>
+</tbody>

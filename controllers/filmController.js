@@ -33,7 +33,7 @@ exports.lista = async (req, res, next) => {
       {
         $project: {
           _id: 1,
-          cim: 1,
+          cím: 1,
           gyartas: 1,
           rendezo: {
             $ifNull: [
@@ -44,7 +44,7 @@ exports.lista = async (req, res, next) => {
         }
       },
 
-      { $sort: { cim: 1, _id: 1 } }
+      { $sort: { cím: 1, _id: 1 } }
     ]).exec();
 
     res.render('filmek', { filmek });

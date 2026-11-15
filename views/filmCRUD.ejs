@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filmCRUD</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hangosfilmek</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Film címe</th>
+        <th>Gyártási év</th>
+        <th>Hossz</th>
+        <th>Bemutató</th>
+        <th>Youtube</th>
+        <th>Műveletek</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if (filmek.length === 0) { %>
+        <tr>
+          <td colspan="5">Nincs megjeleníthető film.</td>
+        </tr>
+      <% } %>
+
+      <% filmek.forEach((film) => { %>
+        <tr>
+          <td><%= film.cím %></td>
+          <td><%= film.gyartas %></td>
+          <td><%= film.hossz %></td>
+          <td><%= film.bemutato %></td>
+          <td><%= film.youtube ? 'igen' : 'nem' %></td>
+          <td><a href="/filmCRUD/edit/<%= film._id %>">
+              Szerkesztés
+            </a>
+        <a
+              href="/filmCRUD/delete/<%= film._id %>"
+              class="torles"
+            >
+              Törlés
+            </a></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>

@@ -24,6 +24,10 @@
 <body>
   <h1>Hangosfilmek</h1>
 
+  <p>
+  <a href="/filmCRUD/create">Film létrehozása</a>
+</p>
+
   <table>
     <thead>
       <tr>
@@ -39,7 +43,7 @@
     <tbody>
       <% if (filmek.length === 0) { %>
         <tr>
-          <td colspan="5">Nincs megjeleníthető film.</td>
+          <td colspan="6">Nincs megjeleníthető film.</td>
         </tr>
       <% } %>
 
@@ -53,12 +57,13 @@
           <td><a href="/filmCRUD/edit/<%= film._id %>">
               Szerkesztés
             </a>
-        <a
-              href="/filmCRUD/delete/<%= film._id %>"
-              class="torles"
-            >
-              Törlés
-            </a></td>
+       <form
+          action="/filmCRUD/delete/<%= film._id %>"
+          method="POST"
+          style="display: inline;"
+>
+          <button type="submit" class="torles">Törlés</button>
+        </form></td>
         </tr>
       <% }); %>
     </tbody>

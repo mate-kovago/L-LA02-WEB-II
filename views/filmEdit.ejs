@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Film szerkesztése</title>
+</head>
+<body>
+  <h1>Film szerkesztése</h1>
+
+  <form action="/filmCRUD/edit/<%= film._id %>" method="POST">
+    <p>
+      <label for="cim">Film címe:</label><br>
+      <input
+        type="text"
+        id="cim"
+        name="cím"
+        value="<%= film.cím %>"
+        required
+      >
+    </p>
+
+    <p>
+      <label for="gyartas">Gyártási év:</label><br>
+      <input
+        type="number"
+        id="gyartas"
+        name="gyartas"
+        value="<%= film.gyartas %>"
+        step="1"
+        required
+      >
+    </p>
+
+    <p>
+      <label for="hossz">Hossz (perc):</label><br>
+      <input
+        type="number"
+        id="hossz"
+        name="hossz"
+        value="<%= film.hossz ?? '' %>"
+        min="0"
+      >
+    </p>
+
+    <p>
+      <label for="bemutato">Bemutató:</label><br>
+      <input
+        type="date"
+        id="bemutato"
+        name="bemutato"
+        value="<%= film.bemutato ?? '' %>"
+      >
+    </p>
+
+    <p>
+      <label for="youtube">
+        <input
+          type="checkbox"
+          id="youtube"
+          name="youtube"
+          <%= film.youtube ? 'checked' : '' %>
+        >
+        Elérhető YouTube-on
+      </label>
+    </p>
+
+    <button type="submit">Mentés</button>
+    <a href="/CRUD">Mégse</a>
+  </form>
+</body>
+</html>

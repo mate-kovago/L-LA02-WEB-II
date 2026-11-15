@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const controller = require("../controllers/mainController");
 const filmController = require("../controllers/filmController");
+const filmCrudController = require("../controllers/filmCrudController")
 
 isLoggedIn=(req,res,next)=>{
     if(req.session.user){return next();}
@@ -21,5 +22,11 @@ router.get("/user", isLoggedIn, controller.userIndex);
 router.get("/admin", isAdmin, controller.adminIndex);
 
 router.get("/filmek", filmController.lista);
+router.get("/CRUD", filmCrudController.lista);
+router.get("/filmCRUD/edit/:id", filmCrudController.szerkesztes);
+router.post("/filmCRUD/edit/:id", filmCrudController.szerkesztesMentese);
+router.get("/filmCRUD/create", filmCrudController.create );
+router.post("/filmCRUD/create", filmCrudController.save );
+router.post('/filmCRUD/delete/:id', filmCrudController.delete)
 
 module.exports = router;

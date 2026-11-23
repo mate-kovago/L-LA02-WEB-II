@@ -5,10 +5,14 @@
     </head>
     <body>
         <nav>
-            <a href="/">Home</a>
-            <% if(user){ %><a href="/user">User</a> <% } %>
-            <% if(user && user.role=="admin"){ %><a href="/admin">Admin</a> <% } %>
-            <% if(!user){ %><a href="/login">Login</a> <a href="/register">Register</a> <% }else{ %>
-            <%= user.username %> <a href="/logout">Logout</a> <% } %>
+            <a href="/">Főoldal</a>
+            <a href="/filmek"> Filemek (adatbázis)</a>
+            <a href="/kapcsolat">Kapcsolat</a>
+            <% if(!user){ %><a href="/login">Bejelentkezés</a> 
+            <a href="/register">Register</a> <% }else{ %>
+
+            <% if(user){ %><a href="/uzenetek">Üzenetek</a> <% } %>
+            <% if(user && user.role=="admin"){ %><a href="/CRUD">CRUD Film hozzáadás</a> <% } %>
+            <a href="/logout">Logout</a>  <%= user.username %> <% } %>
         </nav>
         <hr>

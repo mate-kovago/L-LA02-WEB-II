@@ -32,9 +32,9 @@ exports.loginPost = async (req, res) => {
     }
     req.session.user = { id: user._id, username: user.username, role: user.role };
     if (user.role === "admin") {
-        res.redirect("/admin");
+        res.redirect("/CRUD");
     } else {
-        res.redirect("/user");
+        res.redirect("/uzenetek");
     }
 };
 exports.logout = (req, res) => {

@@ -2,6 +2,7 @@ const router = require("express").Router();
 const controller = require("../controllers/mainController");
 const filmController = require("../controllers/filmController");
 const filmCrudController = require("../controllers/filmCrudController")
+const uzenetController = require("../controllers/uzenetController")
 
 isLoggedIn=(req,res,next)=>{
     if(req.session.user){return next();}
@@ -27,6 +28,9 @@ router.get("/filmCRUD/edit/:id", filmCrudController.szerkesztes);
 router.post("/filmCRUD/edit/:id", filmCrudController.szerkesztesMentese);
 router.get("/filmCRUD/create", filmCrudController.create );
 router.post("/filmCRUD/create", filmCrudController.save );
-router.post('/filmCRUD/delete/:id', filmCrudController.delete)
+router.post('/filmCRUD/delete/:id', filmCrudController.delete);
+router.get("/uzenetek", uzenetController.lista );
+router.get("/kapcsolat", uzenetController.create);
+router.post("/kapcsolat", uzenetController.save);
 
 module.exports = router;

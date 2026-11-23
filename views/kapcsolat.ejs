@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Üzenet küldése</title>
+</head>
+<body>
+  <h1>Üzenet küldése</h1>
+
+  <% if (errors.length > 0) { %>
+  <div role="alert">
+    <ul>
+      <% errors.forEach((error) => { %>
+        <li><%= error %></li>
+      <% }); %>
+    </ul>
+  </div>
+<% } %>
+
+<% if (success) { %>
+    <p>Az üzenetet sikeresen elküldted!</p>
+<% } %>
+
+  <form action="/kapcsolat" method="POST">
+     
+    <div>
+        <label for="contact-email">E-mail-cím</label>
+        <input name="email" type="email" autocomplete="email" maxlength="255"  required>
+    </div>
+    <div>
+        <label for="contact-message">Üzenet</label>
+        <textarea  name="uzenet" rows="6" required></textarea>
+    </div>
+
+    <button type="submit">Mentés</button>
+    <a href="/">Mégse</a>
+  </form>
+</body>
+</html>

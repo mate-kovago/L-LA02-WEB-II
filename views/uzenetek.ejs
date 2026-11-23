@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Üzenetek</title>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #eee;
+    }
+  </style>
+</head>
+<body>
+  <h1>Üzenetek</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>E-mail cím</th>
+        <th>Üzenet</th>
+        <th>Érkezett</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% if (uzenetek.length === 0) { %>
+        <tr>
+          <td colspan="3">Nincs megjeleníthető Üzenet.</td>
+        </tr>
+      <% } %>
+
+      <% uzenetek.forEach((uzenet) => { %>
+        <tr>
+          <td><%= uzenet.email %></td>
+          <td><%= uzenet.uzenet %></td>
+          <td><%= uzenet.bekuldve %></td>
+        </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</body>
+</html>
